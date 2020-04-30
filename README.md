@@ -15,3 +15,4 @@ if this does not work then type
 ```bash
 alias bob="~/.bob/bob"
 ```
+but this command will **ONLY** execute after running install.sh
