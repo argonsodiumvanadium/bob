@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if   [ "$1" = build ]; then
+	./main build $2 $3
+elif [  "$1" = -b ]; then
+	./main build $2 $3
+elif [ "$1" = list ]; then
+	./main list $2
+elif [ "$1" = -l ]; then
+	./main list $2
+else
+	printf "\n\e[96mBob\e[0m : A friendly directory manager\n"
+	printf "\nCommands\n\n"
+	printf "\e[96mbuild or -b\e[0m : Build a Project\n\tfirst argument is the directory name\n\tsecond argument is the project name\n\n"
+	printf "\e[96mlist or -l\e[0m  : List all Projects\n\tIf argument is ommited then all projects are listed\n\tIf first [Optional] argument is supplied then the attributes.yaml file of the project is displayed\n\n"
+fi
