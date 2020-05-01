@@ -5,6 +5,7 @@ well bob is a command line tool that can be used to create and manage projects, 
 #### Features
 - A simple to use cli tool
 - installs dependencies for you with the init command
+- fast as lightning
 #### How to install
 simple execute `install.sh` with line
 ```bash
