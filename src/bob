@@ -8,9 +8,49 @@ elif [ "$1" = list ]; then
 	./main list $2
 elif [ "$1" = -l ]; then
 	./main list $2
+elif [ "$1" = -a ]; then
+	./main add $2 $3
+elif [ "$1" = add ]; then
+	./main add $2 $3
+elif [ "$1" = del ]; then
+	printf "are you sure that you want to delete the project $2,\nunlike rm del deletes the directory too so are you sure : "
+	read $ans
+	if [ "$ans" = "y" ]; then
+		./main del $2
+	elif [ "$ans" = "yes" ]; then
+		./main del $2
+	fi
+elif [ "$1" = -d ]; then
+	printf "are you sure that you want to delete the project $2,\nunlike rm, del deletes the directory too so are you sure (y/n): "
+	read ans
+	if [ "$ans" = "y" ]; then
+		./main del $2
+	elif [ "$ans" = "yes" ]; then
+		./main del $2
+	fi
+elif [ "$1" = rm ]; then
+	./main rm $2
+elif [ "$1" = -r ]; then
+	./main rm $2
+elif [ "$1" = init ]; then
+	./main init $2
+elif [ "$1" = -i ]; then
+	./main init $2
 else
-	printf "\n\e[96mBob\e[0m : A friendly directory manager\n"
+	printf "\n\e[96mBob\e[0m : A friendly project manager\n"
 	printf "\nCommands\n\n"
-	printf "\e[96mbuild or -b\e[0m : Build a Project\n\tfirst argument is the directory name\n\tsecond argument is the project name\n\n"
-	printf "\e[96mlist or -l\e[0m  : List all Projects\n\tIf argument is ommited then all projects are listed\n\tIf first [Optional] argument is supplied then the attributes.yaml file of the project is displayed\n\n"
+	printf "\e[96madd or -a\e[0m    : Add a directory to bob, \n\tso that it can leverage the advantages of bob\
+	\n\tfirst compulsory argument is the path to the directory\n\
+	The second [Optional] argument tells the name of the project, if no name is provided, then the name of the dir is taken\n\n"
+	printf "\e[96mbuild or -b\e[0m  : Build a Project\n\tfirst argument is the directory name\n\tsecond argument is the project name\n\n"
+	printf "\e[91mdel or -d\e[0m    : Deletes a Project\n\
+	This command not only removes the name of the file from data.yaml file but \e[91mALSO DELETES THE DIRECTORY\e[0m\n\
+	The first argument is the name of the project\n\n"
+	printf "\e[96minit or -i\e[0m   : Initializes dependencies\n\
+	The command Initializes dependencies for a given bob directory,\n\tthe first compulsory argument is the name of the project\n\n"
+	printf "\e[96mlist or -l\e[0m   : List all Projects\n\tIf argument is ommited then all projects are listed\
+	\n\tIf first [Optional] argument is supplied then the attributes.yaml file of the project is displayed\n\n"
+	printf "\e[91mrm or -r\e[0m     : Removes a project from the data.yaml file\n\
+	First compulsory argument is the name of the project, this command will \e[96mNOT REMOVE\e[0m the directory,\n\
+	it will just remove the name from data.yaml\n\n"
 fi
