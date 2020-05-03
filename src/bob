@@ -1,41 +1,41 @@
 #!/bin/bash
-
+cd ~/.bob/
 if   [ "$1" = build ]; then
-	./main build $2 $3
+	~/.bob/main build $2 $3
 elif [  "$1" = -b ]; then
-	./main build $2 $3
+	~/.bob/main build $2 $3
 elif [ "$1" = list ]; then
-	./main list $2
+	~/.bob/main list $2
 elif [ "$1" = -l ]; then
-	./main list $2
+	~/.bob/main list $2
 elif [ "$1" = -a ]; then
-	./main add $2 $3
+	~/.bob/main add $2 $3
 elif [ "$1" = add ]; then
-	./main add $2 $3
+	~/.bob/main add $2 $3
 elif [ "$1" = del ]; then
 	printf "are you sure that you want to delete the project $2,\nunlike rm del deletes the directory too so are you sure : "
 	read $ans
 	if [ "$ans" = "y" ]; then
-		./main del $2
+		~/.bob/main del $2
 	elif [ "$ans" = "yes" ]; then
-		./main del $2
+		~/.bob/main del $2
 	fi
 elif [ "$1" = -d ]; then
 	printf "are you sure that you want to delete the project $2,\nunlike rm, del deletes the directory too so are you sure (y/n): "
 	read ans
 	if [ "$ans" = "y" ]; then
-		./main del $2
+		~/.bob/main del $2
 	elif [ "$ans" = "yes" ]; then
-		./main del $2
+		~/.bob/main del $2
 	fi
 elif [ "$1" = rm ]; then
-	./main rm $2
+	~/.bob/main rm $2
 elif [ "$1" = -r ]; then
-	./main rm $2
+	~/.bob/main rm $2
 elif [ "$1" = init ]; then
-	./main init $2
+	~/.bob/main init $2
 elif [ "$1" = -i ]; then
-	./main init $2
+	~/.bob/main init $2
 else
 	printf "\n\e[96mBob\e[0m : A friendly project manager\n"
 	printf "\nCommands\n\n"
